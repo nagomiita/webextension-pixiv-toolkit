@@ -68,26 +68,8 @@ class AbstractEagleImportTask extends AbstractDownloadTask {
   }
 
   buildTags() {
-    const tags = [];
-    const websiteUrl = this.getWebsiteUrl();
-
-    if (/fanbox/i.test(websiteUrl)) {
-      tags.push('fanbox');
-    } else if (/comic\.pixiv/i.test(websiteUrl)) {
-      tags.push('pixiv-comic');
-    } else if (/pixiv/i.test(websiteUrl)) {
-      tags.push('pixiv');
-    }
-
-    if (this.options.resourceType) {
-      tags.push(this.options.resourceType);
-    }
-
-    if (this.context.userName) {
-      tags.push(`author:${this.context.userName}`);
-    }
-
-    return Array.from(new Set(tags.filter(Boolean)));
+    const tags = Array.isArray(this.context.tags) ? this.context.tags : [];
+    return Array.from(new Set(tags.map(tag => `${tag}`.trim()).filter(Boolean)));
   }
 
   async resolveTargetFolderId(workFolderName = undefined) {
@@ -118,6 +100,12 @@ class AbstractEagleImportTask extends AbstractDownloadTask {
 
     if (modificationTime !== undefined) {
       item.modificationTime = modificationTime;
+    }
+
+    const tags = this.buildTags();
+
+    if (tags.length > 0) {
+      item.tags = tags;
     }
 
     return await this.apiClient.addFromUrls({

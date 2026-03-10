@@ -166,6 +166,23 @@ class IllustParser {
     return `https://www.pixiv.net/ajax/illust/${id}`;
   }
 
+  extractTags(context) {
+    const rawTags = context && context.tags && Array.isArray(context.tags.tags) ? context.tags.tags :
+      (context && Array.isArray(context.tags) ? context.tags : []);
+
+    return Array.from(new Set(rawTags.map(tag => {
+      if (typeof tag === 'string') {
+        return tag.trim();
+      }
+
+      if (tag && typeof tag === 'object') {
+        return `${tag.tag || tag.name || ''}`.trim();
+      }
+
+      return '';
+    }).filter(Boolean)));
+  }
+
   /**
    * Make illust's context standard
    * @param {Object} context
@@ -189,6 +206,7 @@ class IllustParser {
       cover: context.urls.thumb,
       comment: context.illustComment,
       description: context.description,
+      tags: this.extractTags(context),
       createDate: context.createDate,
       uploadDate: context.uploadDate,
       type: 'Illust',
