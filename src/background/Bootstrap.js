@@ -18,14 +18,7 @@ class Bootstrap {
       if (typeof bindableInstance[event] === 'function') {
         console.log(event, arguments);
         browser.runtime[event].addListener(function() {
-          bindableInstance[event].apply(bindableInstance, arguments);
-
-          /**
-           * Prevent message port be closed early.
-           */
-          if (event === 'onMessage') {
-            return true;
-          }
+          return bindableInstance[event].apply(bindableInstance, arguments);
         });
       }
     });

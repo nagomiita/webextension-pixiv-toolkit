@@ -21,14 +21,7 @@ class DownloadsBootstrap {
       if (typeof bindableInstance[event] === 'function') {
         browser.runtime[event].addListener(function() {
           console.log(arguments);
-          bindableInstance[event].apply(bindableInstance, arguments);
-
-          /**
-           * Prevent message port be closed early.
-           */
-          if (event === 'onMessage') {
-            return true;
-          }
+          return bindableInstance[event].apply(bindableInstance, arguments);
         });
       }
     });

@@ -28,7 +28,9 @@
         <ptk-button @click="selectAll">{{ tl('_select_all') }}</ptk-button>
         <ptk-button @click="unselectAll">{{ tl('_unselect_all') }}</ptk-button>
         <ptk-button @click="selectInvert">{{ tl('_select_invert') }}</ptk-button>
-        <ptk-button @click="downloadSelectedPages" :disabled="selectedPageIndexes.length < 1">{{ tl('_download') }}</ptk-button>
+        <ptk-button @click="downloadSelectedPages" :disabled="selectedPageIndexes.length < 1">
+          {{ actionMode === 'eagle' ? tl('_import_to_eagle') : tl('_download') }}
+        </ptk-button>
         <ptk-button @click="closeSelectionDialog">{{ tl('_close') }}</ptk-button>
       </template>
     </ptk-dialog>
@@ -65,6 +67,7 @@ export default {
       showSelectionDialog: false,
       pages: [],
       selectedPageIndexes: [],
+      actionMode: 'download',
     }
   },
 
@@ -99,7 +102,8 @@ export default {
   },
 
   methods: {
-    openSelectionDialog() {
+    openSelectionDialog(mode = 'download') {
+      this.actionMode = mode;
       this.showSelectionDialog = true;
     },
 
@@ -132,9 +136,11 @@ export default {
     },
 
     selectAll() {
+      this.selectedPageIndexes = [];
+
       for (let idx in this.pages) {
         this.$set(this.pages, idx, Object.assign(this.pages[idx], { selected: true }));
-        this.selectedPageIndexes.push(parseInt(idx));
+        this.selectedPageIndexes.push(parseInt(idx, 10));
       }
 
       this.emitSelect();
@@ -174,7 +180,8 @@ export default {
 
     downloadSelectedPages() {
       this.$emit('download', {
-        selectedPageIndexes: this.selectedPageIndexes
+        selectedPageIndexes: this.selectedPageIndexes,
+        mode: this.actionMode
       });
     },
 

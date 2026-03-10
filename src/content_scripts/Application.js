@@ -102,7 +102,9 @@ class Application {
 
       this.resource = null;
 
-      console.error(error);
+      if (!(error && error.name === 'RuntimeError' && typeof error.message === 'string' && error.message.startsWith('Invalid page. url:'))) {
+        console.error(error);
+      }
     }
   }
 }

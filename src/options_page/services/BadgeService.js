@@ -4,6 +4,21 @@ import browser from "@/modules/Extension/browser"
 class BadgeService extends AbstractService {
   static instance;
 
+  setIcon(path, sender) {
+    try {
+      const result = browser.action.setIcon({
+        path: browser.runtime.getURL(path),
+        tabId: sender.tab.id,
+      });
+
+      if (result && typeof result.catch === 'function') {
+        result.catch(() => undefined);
+      }
+    } catch (error) {
+      return undefined;
+    }
+  }
+
   static getService() {
     if (!BadgeService.instance) {
       BadgeService.instance = new BadgeService();
@@ -13,17 +28,11 @@ class BadgeService extends AbstractService {
   }
 
   activeIcon({ sender }) {
-    browser.action.setIcon({
-      path: browser.runtime.getURL('./icon_active.png'),
-      tabId: sender.tab.id,
-    });
+    return this.setIcon('./icon_active.png', sender);
   }
 
   deactiveAction({ sender }) {
-    browser.action.setIcon({
-      path: browser.runtime.getURL('./icon.png'),
-      tabId: sender.tab.id,
-    });
+    return this.setIcon('./icon.png', sender);
   }
 }
 

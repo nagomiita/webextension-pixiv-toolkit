@@ -11,6 +11,7 @@ import AbstractRepo from './AbstractRepo';
  * @property {string} r
  * @property {number} visited_at
  * @property {number} downloaded_at
+ * @property {number} eagle_imported_at
  */
 class HistoryRepo extends AbstractRepo {
   /**
@@ -63,11 +64,17 @@ class HistoryRepo extends AbstractRepo {
       data.downloaded_at = item.downloaded_at;
     }
 
+    if (item.eagle_imported_at) {
+      data.eagle_imported_at = item.eagle_imported_at;
+    }
+
     let foundItem = await this.getItem({ uid: item.uid });
 
     if (!foundItem) {
       if (data.downloaded_at) {
         data.visited_at = data.downloaded_at;
+      } else if (data.eagle_imported_at) {
+        data.visited_at = data.eagle_imported_at;
       }
 
       this.addItem(data);

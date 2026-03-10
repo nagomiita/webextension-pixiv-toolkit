@@ -60,6 +60,9 @@
               <span v-if="item.downloaded_at"
                 class="history-item__info-tag history-item__info-tag--success"
               >{{ tl('_downloaded') }}</span>
+              <span v-if="item.eagle_imported_at"
+                class="history-item__info-tag history-item__info-tag--primary"
+              >{{ tl('_imported_to_eagle') }}</span>
               {{ item.title }}
             </div>
             <div class="history-item__info-entity history-item__info-entity--sub"><a :href="item.url" target="_blank">{{ item.url }}</a> <v-icon small>open_in_new</v-icon></div>
@@ -488,6 +491,11 @@ export default {
         color: #fff;
         background: green;
       }
+    }
+
+    .history-item__info-tag--primary {
+      background: #3367d6;
+      color: #fff;
     }
 
     .history-item__actions {

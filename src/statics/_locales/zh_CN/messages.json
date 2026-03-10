@@ -1,992 +1,1070 @@
-{
+﻿{
    "_author": {
-      "message": "画师"
+      "message": "Author"
    },
    "_author_id": {
-      "message": "画师编号"
+      "message": "Author ID"
    },
    "downloadFullscreenZipFile": {
-      "message": "下载全屏zip包"
+      "message": "Download fullscreen zip"
    },
    "downloadNormalZipFile": {
-      "message": "下载普通zip包"
+      "message": "Download normal zip"
    },
    "downloadZipFile": {
-      "message": "下载zip包"
+      "message": "Download zip"
    },
    "downloadPage": {
-      "message": "下载页数"
+      "message": "Download page"
    },
    "download_page__short": {
-      "message": "DL"
+      "message": "DL page"
    },
    "waitDownload": {
-      "message": "请等待上一个下载完成"
+      "message": "Please wait the last download complete"
    },
    "save_page": {
-      "message": "保存页数"
+      "message": "Save page"
    },
    "enable_ugoira_meta": {
-      "message": "可用的元数据（拖动选择）"
+      "message": "Metas can use (Drag to select)"
    },
    "extDescription": {
-      "message": "下载Pixiv，Fanbox、Comic上的动图、图片、漫画和小说等"
+      "message": "Download ugoira, illustrations, manga and novel on Pixiv, Pixiv Fanbox and Pixiv Comic."
    },
    "extName": {
-      "message": "Pixiv 工具箱 Next"
+      "message": "Pixiv Toolkit Next"
    },
    "generate_gif_btn_complete_text": {
-      "message": "保存GIF"
-   },
-   "generate_gif_btn_error_download_text": {
-      "message": "下载出错"
+      "message": "Save GIF"
    },
    "generate_gif_btn_text": {
-      "message": "生成GIF"
+      "message": "Generate GIF"
    },
    "generate_webm_btn_complete_text": {
-      "message": "保存WebM"
+      "message": "Save WebM"
    },
    "generate_webm_btn_text": {
-      "message": "生成WebM"
+      "message": "Generate WebM"
    },
    "generating_webm": {
-      "message": "生成WebM中"
+      "message": "Compiling WebM"
    },
    "generating": {
-      "message": "生成中..."
+      "message": "Generating"
    },
    "preparing": {
-      "message": "准备生成..."
+      "message": "Preparing"
    },
    "id": {
-      "message": "编号"
+      "message": "ID"
    },
    "rename_ugoira_file": {
-      "message": "命名动图下载文件"
+      "message": "Rename ugoira file"
    },
    "setting": {
-      "message": "设置"
+      "message": "Setting"
    },
    "settings": {
-        "message": "设置"
+        "message": "Settings"
    },
    "setting_not_saved": {
-      "message": "设置保存出错"
+      "message": "Save setting failed"
    },
    "setting_saved": {
-      "message": "设置已保存"
+      "message": "Setting saved"
    },
    "title": {
-      "message": "标题"
+      "message": "Title"
    },
    "used_ugoira_meta": {
-      "message": "已选择的元数据"
+      "message": "Metas is in used"
    },
    "ugoira_quality": {
-       "message": "生成GIF质量"
+       "message": "Ugoira quality"
    },
    "ugoira_best": {
-       "message": "极好"
+       "message": "Best"
    },
    "ugoira_good": {
-       "message": "较好"
+       "message": "Good"
    },
    "ugoira_normal": {
-       "message": "普通"
+       "message": "Normal"
    },
    "quality": {
-       "message": "质量"
+       "message": "Quality"
    },
    "extend_duration": {
-       "message": "延长时长"
+       "message": "Extend duration"
    },
    "extend_duration_desc": {
-       "message": "当原始动图时长低于选择的时长时额外延长动图时长"
+       "message": "Extend ugoira duration when the duration is not expected"
    },
    "enable_extend_title": {
-       "message": "原始动图时长"
+       "message": "Enable repeat when ugoira duration under choosen duration"
    },
    "enable_extend_desc": {
-       "message": "选择0时将禁用延长时长"
+       "message": "Extend duration will be disabled when 0 is choosen"
    },
    "extend_duration_seconds_title": {
-       "message": "至少延长动图时长至选择的时长"
+       "message": "Extend ugoira duration to choosen duration at least"
    },
    "open_settings": {
-       "message": "打开设置"
+       "message": "Open settings"
    },
    "open_settings_intro": {
-       "message": "请右键点击图标选择\"选项\"进入设置页面"
+       "message": "Please right-click the icon and click \"Options\" to open settings page"
    },
    "extend_enable": {
-       "message": "启用延长时长功能"
+       "message": "Turn on/off extend duration function"
    },
    "rename_ugoira": {
-      "message": "重命名动图文件"
+      "message": "Rename downloaded ugoira"
    },
    "Ugoira": {
-     "message": "动图"
+     "message": "Ugoira"
    },
    "Manga": {
-    "message": "漫画"
+    "message": "Manga"
    },
    "_rename_manga": {
-      "message": "重命名漫画"
+      "message": "Rename manga"
    },
    "quick_picks": {
-      "message": "快速选取"
+      "message": "Quick picks"
    },
    "rename_format": {
-      "message": "重命名格式"
+      "message": "Rename format"
    },
    "manga_image_name_prefix": {
-       "message": "漫画图片数字前缀"
+       "message": "Manga images page number prefix"
    },
    "page_num": {
-      "message": "页码"
+      "message": "Page No."
    },
    "pending": {
-      "message": "准备下载"
+      "message": "Pending"
    },
    "general": {
-      "message": "一般设置"
+      "message": "General"
    },
    "pack_ugoira_frames_info_into_zip": {
-      "message": "将动图帧信息打包进zip文件"
+      "message": "Pack ugoira frames info into zip file"
    },
    "pack_ugoira_frames_info": {
-      "message": "打包帧信息"
+      "message": "Pack frames info"
    },
    "number_of_pages_in_each_chunk": {
-      "message": "每个包里的图片张数"
+      "message": "Number of images contained in each chunk"
    },
    "number_of_pages_in_each_chunk_desc": {
-      "message": "如果游览器在下载中崩溃，请调低这个参数"
+      "message": "Reduce this number if browser is crashing during downloading"
    },
    "download_novel": {
-     "message": "下载小说"
+     "message": "Download novel"
    },
    "Menu": {
-     "message": "菜单"
+     "message": "Menu"
    },
    "_give_5_stars": {
-     "message": "5星好评"
+     "message": "Give 5 stars"
    },
    "_support_me": {
-     "message": "请支持我"
+     "message": "Support me"
    },
    "Change_History": {
-     "message": "更新历史"
+     "message": "Change History"
    },
    "Sponsors": {
-     "message": "赞助者"
+     "message": "Sponsors"
    },
    "_sponsors": {
-     "message": "赞助者"
+     "message": "Sponsors"
    },
    "Third_Party": {
-     "message": "第三方"
+     "message": "Third-Party"
    },
    "setting_generate_and_download": {
-     "message": "生成并下载"
+     "message": "Generate and download"
    },
    "setting_generate_and_download_desc": {
-     "message": "当gif或webm生产后直接下载文件"
+     "message": "Download gif/webm when file is generated"
    },
    "setting_pack_and_download": {
-     "message": "打包并下载"
+     "message": "Pack and download"
    },
    "setting_pack_and_download_desc": {
-     "message": "当图片打包完成后自动下载文件"
+     "message": "Download zip when images are packed"
    },
    "Downloads": {
-     "message": "下载"
+     "message": "Downloads"
    },
    "setting_downloads_permission": {
-     "message": "下载权限"
+     "message": "Downloads permission"
    },
    "setting_downloads_permission_desc": {
-     "message": "下载设置需要插件拥有下载权限"
+     "message": "Downloads settings need downloads permission to work"
    },
    "Grant": {
-     "message": "授权"
+     "message": "Grant"
    },
    "Remove": {
-     "message": "移除"
+     "message": "Remove"
    },
    "setting_ext_take_over_downloads": {
-     "message": "允许扩展程序接管下载"
+     "message": "Allow extension takes over downloads"
    },
    "setting_ext_take_over_downloads_desc": {
-     "message": "需要下载权限"
+     "message": "Need download permission"
    },
    "setting_relative_location": {
-     "message": "保存到相对位置"
+     "message": "Relative location"
    },
    "relative_location_hint": {
-     "message": "此位置将作为浏览器下载设置路径的后缀。例如, 浏览器下载地址设置为 \"D:/downloads/\" ，那么插件将会把文件保存到 \"D:/downloads/{{downloadRelativeLocation}}\""
+     "message": "The location will be the suffix of the Chrome downloads location. For example, Chrome download location is \"D:/downloads/\" then the full download location will be \"D:/downloads/{{downloadRelativeLocation}}\""
    },
    "Change": {
-     "message": "修改"
+     "message": "Change"
    },
    "Others": {
-     "message": "其他"
+     "message": "Others"
    },
    "setting_show_history_when_update_completed": {
-     "message": "升级完成后显示历史修改记录"
+     "message": "Show change history when update completed"
    },
    "sponsor_update_periodically": {
-     "message": "是你们让它变得更好，谢谢！（此列表会周期性更新）"
+     "message": "You guys make it better, thanks! (The list will be updated periodically)"
    },
-   "sponser_very_first": {
-     "message": "成为第一位赞助者"
+   "sponsor_very_first": {
+     "message": "Become the very first sponsor"
    },
    "Try_Manga_Toolkit": {
-       "message": "尝试漫画工具箱"
+       "message": "Try Manga Toolkit"
    },
    "Subscribes": {
-       "message": "订阅"
+       "message": "Subscribes"
    },
    "Search": {
-       "message": "搜索"
+       "message": "Search"
    },
    "Enable_search_suffix": {
-       "message": "启用搜索后缀"
+       "message": "Enable search suffix"
    },
    "Add_a_search_suffix_for_searching_popular_works_probably": {
-       "message": "添加搜索后缀以搜索热门作品（大概）"
+       "message": "Add a search suffix for searching popular works (probably)"
    },
    "_star_it": {
-       "message": "加个星"
+       "message": "Star it"
    },
    "Novel": {
-       "message": "小说"
+       "message": "Novel"
    },
    "_novel_rename_rule": {
-       "message": "小说重命名规则"
+       "message": "Novel rename rule"
    },
    "include_novel_description": {
-       "message": "包含小说描述内容"
+       "message": "Include novel description"
    },
    "include_novel_description_at_the_beginning": {
-       "message": "在小说开始部分包含描述内容"
+       "message": "Include novel description at the beginning of the file"
    },
    "clear_history_data": {
-       "message": "清空历史记录数据"
+       "message": "Clear history data"
    },
    "clear_history_data_cannot_be_reversed": {
-       "message": "此操作不可恢复"
+       "message": "This operation cannot be reversed"
    },
    "_clear": {
-       "message": "清空"
+       "message": "Clear"
    },
    "History":{
-       "message": "历史记录"
+       "message": "History"
    },
    "comment": {
-       "message": "评论"
+       "message": "Comment"
    },
    "description": {
-       "message": "描述"
+       "message": "Description"
    },
    "createDate": {
-       "message": "创建日期"
+       "message": "Create Date"
    },
    "uploadDate": {
-        "message": "上传日期"
+        "message": "Upload Date"
    },
    "type": {
-       "message": "类型"
+       "message": "Type"
    },
    "bookmarkCount": {
-       "message": "收藏数"
+       "message": "Bookmark Count"
    },
    "likeCount": {
-       "message": "点赞数"
+       "message": "Like Count"
    },
    "responseCount": {
-       "message": "评论数"
+       "message": "Response Count"
    },
    "viewCount": {
-       "message": "查看数"
+       "message": "View Count"
    },
    "_number_of_works_downloaded": {
-       "message": "已下载的作品数量"
+       "message": "Number of works downloaded"
    },
    "_infomation_of_current_work": {
-        "message": "当前作品的信息"
+        "message": "Infomation of current work"
    },
    "work": {
-       "message": "作品"
+       "message": "work"
    },
    "works": {
-       "message": "作品"
+       "message": "works"
    },
    "_report_issue": {
-       "message": "报告问题"
+       "message": "Report issue"
    },
    "_settings": {
-       "message": "设置"
+       "message": "Settings"
    },
    "Ask_where_to_save_each_file_before_downloading": {
-       "message": "下载前询问文件保存位置"
+       "message": "Ask where to save each file before downloading"
    },
    "This_setting_has_no_effect_if_the_similar_setting_of_your_Chrome_is_on": {
-       "message": "如果浏览器相关设置为启用状态，此项无效"
+       "message": "This setting has no effect if the similar setting of your Chrome is on"
    },
    "Enable_save_visit_history": {
-       "message": "保存浏览记录"
+       "message": "Enable save visit history"
    },
    "Enable_Disable_save_visit_history": {
-       "message": "启用/禁止保存浏览记录"
+       "message": "Enable/Disable save visit history"
    },
    "Do_not_save_NSFW_work_to_history": {
-       "message": "不保存NSFW作品到浏览记录"
+       "message": "Do not save NSFW work to history"
    },
    "Activate_download_panel_automatically": {
-       "message": "自动激活下载面板"
+       "message": "Activate download panel automatically"
    },
    "Download_panel_will_show_up_automatically_when_page_loaded": {
-       "message": "当目标页面被加载完成时，自动显示下载面板"
+       "message": "Download panel will show up automatically when page loaded"
    },
    "_history": {
-       "message": "历史记录"
+       "message": "History"
    },
    "Illustration": {
-       "message": "绘画"
+       "message": "Illustration"
    },
    "_rename_illustration": {
-       "message": "重命名绘画"
+       "message": "Rename illustration"
    },
    "Download_file_if_everything_is_ready": {
-       "message": "准备完成直接下载"
+       "message": "Download file directly if everything is ready"
    },
    "Reload_extension": {
-       "message": "重新加载插件"
+       "message": "Reload extension"
    },
    "Reload_extension_if_there_is_something_wrong": {
-       "message": "如果发现任何问题，可以尝试重新加载插件"
+       "message": "Reload extension if there is something wrong"
    },
    "Reload": {
-       "message": "重新加载"
+       "message": "Reload"
    },
    "Export_visit_history": {
-       "message": "导出浏览历史"
+       "message": "Export visit history"
    },
    "_export": {
-       "message": "导出"
+       "message": "Export"
    },
    "Import_visit_history": {
-       "message": "导入浏览历史"
+       "message": "Import visit history"
    },
    "_import": {
-       "message": "导入"
+       "message": "Import"
    },
    "_display_ugoira_download_progress": {
-        "message": "显示下载资源进度"
+        "message": "Display ugoira download progress"
    },
    "_display_download_progress_will_block_images_loadings_on_the_page_until_the_download_complete": {
-       "message": "显示下载资源进度可能会阻止页面图片的加载知道资源下载完成（不会阻塞界面进程）。"
+       "message": "Display download progress will may block images loadings on the page (do not block UI process) until the download complete."
    },
    "_you_need_to_download_Pixiv_Omina_for_the_button_to_work": {
-       "message": "你需要下载Pixiv Omina来使得这个按钮正常工作"
+       "message": "You need to download Pixiv Omina for the button to work"
    },
    "_Enable_this_may_cause_issue_about_loading_images": {
-       "message": "启用此项可能会导致加载页面问题"
+       "message": "Enable this may cause issue about loading images"
    },
    "_year": {
-       "message": "年"
+       "message": "year"
    },
    "_month": {
-       "message": "月"
+       "message": "month"
    },
    "_day": {
-       "message": "日"
+       "message": "day"
    },
    "_keep_page_number": {
-       "message": "保留页码"
+       "message": "Keep page number"
    },
    "_keep_page_number_even_if_the_illustration_only_has_one_image": {
-       "message": "即使图集只有一张图片也保留页码"
+       "message": "Keep page number even if the illustration only has one image"
    },
    "_copy_settings": {
-       "message": "复制设置"
+       "message": "Copy settings"
    },
    "_export_settings": {
-       "message": "导出设置"
+       "message": "Export settings"
    },
    "_import_settings": {
-       "message": "导入设置"
+       "message": "Import settings"
    },
    "_this_item_may_has_been_saved": {
-       "message": "此项目可能已经保存过，是否继续下载？"
+       "message": "This item may has been saved, still download it ?"
    },
    "_this_work_may_has_been_saved": {
-       "message": "此作品可能已经保存过，是否继续下载？"
+       "message": "This work may has been saved, still download it ?"
    },
    "_ask_whether_to_download_the_work_may_has_been_downloaded": {
-       "message": "是否询问下载可能已经保存过的作品"
+       "message": "Ask whether to download the work may has been downloaded"
    },
    "_grant_the_extension_to_access": {
-       "message": "授权插件访问"
+       "message": "Grant the extension to access"
    },
    "_some_user_find_some_resources_of_pixiv_are_store_at": {
-       "message": "一些用户发现部分Pixiv的资源存放在"
+       "message": "Some users find some works need to access"
    },
    "_do_not_show_again": {
-       "message": "不再显示"
+       "message": "Don't show again"
    },
    "_you_can_grant_remove_permission_in_options_page_too": {
-       "message": "你同样可以在设置页面授权/移除权限"
+       "message": "You can grant/remove permission in options page too"
    },
    "_close": {
-       "message": "关闭"
+       "message": "Close"
    },
    "_work_relative_location_desc": {
-       "message": "此设置会覆盖“下载”部分中的“保存到相对位置”设置。<br><strong>你还可以使用诸如{id}，{title}等的重命名元来组织文件夹。查看重命名设置以检查可用的重命名元。</strong>"
+       "message": "This setting will override the \"Relative location\" setting in \"Downloads\" section.<br><strong>You can also use rename meta like {id}, {title}, etc. to organize the folders. You can review the rename setting to check available rename meta.</strong>"
    },
    "_save_ugoira_in_relative_location": {
-       "message": "保存动图到相对位置"
+       "message": "Save ugoira in relative location"
    },
    "_save_illustration_in_relative_location": {
-       "message": "保存图集到相对位置"
+       "message": "Save illustration in relative location"
    },
    "_save_manga_in_relative_location": {
-       "message": "保存漫画到相对位置"
+       "message": "Save manga in relative location"
    },
    "_save_novel_in_relative_location": {
-       "message": "保存小说到相对位置"
+       "message": "Save novel in relative location"
    },
    "_change": {
-       "message": "修改"
+       "message": "Change"
    },
    "_must_enable_extension_take_over_downloads_setting": {
-       "message": "必须启用\"插件接管下载\"设置"
+       "message": "Require enabling \"extension takes over downloads\" setting"
    },
    "_rename_illustration_image_hint": {
-       "message": "例子：{authorId}_{id}_{pageNum}。你可以将当图集只有一张图片时想要移除的部分放在两个#标签之间。"
+       "message": "Example: {authorId}_{id}_{pageNum}. You can place the deleted part between the two # tags when there is only one image in the illustration."
    },
    "_create_a_specified_number_of_download_tasks": {
-        "message": "下载请求数"
+        "message": "Number of download requests"
    },
    "_create_a_specified_number_of_download_tasks_when_downloading_illustration_or_manga": {
-       "message": "在下载插画或漫画时同时下载的数量"
+       "message": "How many images will be downloaded at the same time"
    },
    "_recovery": {
-       "message": "恢复"
+       "message": "Recovery"
    },
    "_recovery_history": {
-       "message": "恢复历史记录"
+       "message": "Recovery history"
    },
    "_total_backup": {
-       "message": "总数"
+       "message": "Total"
    },
    "_recovery_history_will_take_some_time_determine_by_how_many_history_need_to_be_recovery_are_you_sure": {
-       "message": "恢复历史记录会花费一些时间，具体时间取决于需要恢复的历史记录的总量？"
+       "message": "Recovery history will take some time determine by how many history need to be recovery. Are you sure ?"
    },
    "_import_history_will_take_some_time_determine_by_how_many_history_need_to_be_imported_are_you_sure": {
-       "message": "导入历史记录会花费一些时间，具体时间取决于需要恢复的历史记录的总量？"
+       "message": "Import history will take some time determine by how many history need to be imported. Are you sure ?"
    },
    "_do_not_pack": {
-        "message": "不打包"
+        "message": "Do not pack"
    },
    "_type": {
-       "message": "类型"
+       "message": "Type"
    },
    "pack_ugoira_frames_info_into_tip": {
-       "message": "类型 1：仅打包帧信息；类型 2：打包帧信息以及其他信息。"
+       "message": "Type 1: Pack frames info only; Type 2: Pack frames and other infos."
    },
    "_this_operation_cannot_be_reversed_are_you_sure": {
-       "message": "此操作不可撤销，确定？"
+       "message": "This operation cannot be reversed, are you sure?"
    },
    "_recovery_complete_refresh_page_please": {
-       "message": "恢复完成，请刷新页面。"
+       "message": "Recovery complete, refresh page please."
    },
    "_language": {
-       "message": "语言"
+       "message": "Language"
    },
    "_default": {
-       "message": "默认"
+       "message": "Default"
    },
    "_preparing": {
-       "message": "准备中"
+       "message": "Preparing"
    },
    "_generate": {
-       "message": "生成"
+       "message": "Generate"
    },
    "_downloading": {
-       "message": "下载中"
+       "message": "Downloading"
    },
    "_save": {
-       "message": "保存"
+       "message": "Save"
    },
    "_interrupted_click_to_retry": {
-       "message": "中断，点击重试"
+       "message": "Interrupted, click to retry"
    },
    "_generating": {
-       "message": "生成中"
+       "message": "Generating"
    },
    "_generating_please_wait": {
-       "message": "生产中，请等待"
+       "message": "Generateing, please wait"
    },
    "_dl_image": {
-       "message": "下载图片"
+       "message": "DL image"
    },
    "_dl_page": {
-       "message": "下载页面"
+       "message": "DL page"
    },
    "_dl_pages": {
-       "message": "下载页面"
+       "message": "DL pages"
    },
    "_save_image": {
-       "message": "保存图片"
+       "message": "Save image"
    },
    "_save_page": {
-       "message": "保存页面"
+       "message": "Save page"
    },
    "_save_pages": {
-       "message": "保存页面"
+       "message": "Save pages"
    },
    "_return_old_style": {
-       "message": "旧版样式"
+       "message": "Return old style"
    },
    "_disable_mask": {
-       "message": "关闭遮罩"
+       "message": "Disable mask"
    },
    "_go_to_new_style": {
-       "message": "新版样式"
+       "message": "Go to new style"
    },
    "_total_records": {
-       "message": "全部条数"
+       "message": "Total records"
    },
    "_save_visit_history_has_been_disabled": {
-       "message": "记录历史功能被关闭"
+       "message": "Save visit history has been disabled"
    },
    "_keep": {
-       "message": "保留"
+       "message": "Keep"
    },
    "_delete": {
-       "message": "删除"
+       "message": "Delete"
    },
    "_notice": {
-       "message": "注意"
+       "message": "Notice"
    },
    "_newer": {
-       "message": "更近"
+       "message": "Newer"
    },
    "_older": {
-       "message": "更远"
+       "message": "Older"
    },
    "_page": {
-       "message": "页码"
+       "message": "Page"
    },
    "_there_is_no_any_history": {
-       "message": "没有历史记录"
+       "message": "There is no any history"
    },
    "_search_history": {
-       "message": "搜索历史记录"
+       "message": "Search History"
    },
    "_page_number_start_with_1": {
-       "message": "页码从1开始"
+       "message": "Page number start with 1"
    },
    "_page_number_start_with_1_otherwise_start_with_0": {
-       "message": "启用后页面从1开始，否则从0开始"
+       "message": "Page number start with 1 otherwise start with 0"
    },
    "_always_pack": {
-       "message": "始终打包"
+       "message": "Always packing image(s)"
    },
    "_always_pack_images_into_zip_file_even_if_there_is_only_one_image_in_the_illustration": {
-       "message": "即使图集只有一张图片也打包进压缩包"
+       "message": "Alway packing image(s) into zip file even if there is only one image in the illustration"
    },
    "_max_history_items": {
-       "message": "最多历史记录"
+       "message": "Max history items"
    },
    "_reload_to_apply_change": {
-       "message": "重新加载以应用更改（所有下载中的任务将会中断）"
+       "message": "Reload to apply change (Add downloads in progress will be aborted)"
    },
    "_search": {
-       "message": "搜索"
+       "message": "Search"
    },
    "_downloads": {
-       "message": "下载记录"
+       "message": "Downloads"
    },
    "_enable_mask": {
-       "message": "启用遮罩"
+       "message": "Enable mask"
    },
    "_enable_save_download_history": {
-       "message": "保存下载记录"
+       "message": "Enable save download history"
    },
    "_disable": {
-       "message": "禁用"
+       "message": "Disable"
    },
    "_enable": {
-       "message": "启用"
+       "message": "Enable"
    },
    "_show_in_work_only": {
-       "message": "仅在作品中显示"
+       "message": "Show in work only"
    },
    "_display_work_type_label": {
-       "message": "显示作品类型标签"
+       "message": "Display work type label"
    },
    "_small": {
-       "message": "小"
+       "message": "Small"
    },
    "_normal": {
-       "message": "中"
+       "message": "Normal"
    },
    "_large": {
-       "message": "大"
+       "message": "Large"
    },
    "_all_settings": {
-       "message": "所有设置"
+       "message": "All Settings"
    },
    "_exclude_history_backup": {
-       "message": "排除历史记录备份"
+       "message": "Exclude history backup"
    },
    "_cover_size": {
-       "message": "封面尺寸"
+       "message": "Cover size"
    },
    "_the_length_of_page_number": {
-       "message": "页码字符长度"
+       "message": "The length of page number"
    },
    "_zeros_will_be_filled_at_the_beginning_of_page_number": {
-       "message": "将会在页码前填充\"0\""
+       "message": "Zeros will be filled at the beginning of page number"
    },
    "_download": {
-       "message": "下载"
+       "message": "Download"
    },
    "_select_and_dl": {
-       "message": "选择并下载"
+       "message": "Select & DL"
    },
    "_select_pages_you_want_to_download": {
-       "message": "选择要下载的图片"
+       "message": "Select page(s) you wan to download"
    },
    "_pending": {
-       "message": "准备中"
+       "message": "Pending"
    },
    "_pack_files": {
-       "message": "打包文件"
+       "message": "Pack Files"
    },
    "_pack_downloaded_files_to_a_zip_file": {
-       "message": "将下载的文件打包成ZIP文件"
+       "message": "Pack downloaded file(s) to a zip file"
    },
    "_start_page_number": {
-       "message": "首页页码"
+       "message": "Start Page Number"
    },
    "_last_page_number": {
-       "message": "终页页码"
+       "message": "Last Page Number"
    },
    "_example_authorId_id_if_you_use_start_page_num_or_last_page_num_you_should_place_the_page_section_between_the_two_hash_tags_like_id_startPageNum_lastPageNum": {
-       "message": "例子：{authorId}_{id}。 如果你使用了'首页页码'或'终页页码'，你应该将页面信息放在两个#符号之间，例如：{id}_#{startPageNum}-{lastPageNum}#"
+       "message": "Example: {authorId}_{id}. If you use 'Start Page Num' or 'Last Page Num', you should place the page(s) part between the two hash tags like {id}_#{startPageNum}-{lastPageNum}#"
    },
    "_more_info": {
-       "message": "更多信息"
+       "message": "More info"
    },
    "_convert_tool": {
-       "message": "转化工具"
+       "message": "Convert Tool"
    },
    "_ffmpeg": {
        "message": "FFmpeg"
    },
    "_select_gif_convert_tool": {
-       "message": "选择动图转化工具"
+       "message": "Select ugoira convert tool"
    },
    "_startup_message": {
-       "message": "自从6.0.0版本更新以来问题一直不断，其主要原因还是当初升级过于仓促导致了一些决策上的失误。经过这段时间的修修补补应该算是进入正规了，在这里也谢谢继续使用并反映问题的你们。由于后面有些个人事务需要处理，计划会每两周集中处理issue，也请大家理解🙏"
+       "message": "There have been constant problems since the 6.0.0 version update, and the main reason is that the upgrade was too hasty and led to some mistakes in decision-making. After this period of repairs, it should be back to road. Thank you for continuing to use and report problems. Due to some personal affairs that need to be dealt with later, the later plan is to deal with issues in every two weeks. Please understand 剌."
    },
    "_ffmpeg_custom_convert_command": {
-       "message": "FFmpeg自定义转换命令，使用回车输入新行"
+       "message": "FFmpeg custom convert command, press enter for new line"
    },
    "_custom": {
-       "message": "自定义"
+       "message": "Custom"
    },
    "_need_permission_to_load_library_from_unpkg_com_go_to_the_next_step": {
-       "message": "需要从 unpkg.com 载入库的权限。进入下一步？"
+       "message": "Need permission to load library from unpkg.com. Go to the next step ?"
    },
    "_not_set": {
-       "message": "未设置"
+       "message": "Not set"
    },
    "_has_not_effect_if_selected_converter_is_ffmpeg": {
-       "message": "当选择FFmpeg为转换器时没有效果"
+       "message": "Has no effect if selected converter is FFmpeg"
    },
    "_disable_downloads_shelf": {
-       "message": "禁用下载架"
+       "message": "Disable downloads shelf"
    },
    "_create_subdirectory": {
-       "message": "创建子目录"
+       "message": "Create Subdirectory"
    },
    "_create_subdirectory_for_illustration": {
-       "message": "为下载的作品创建子目录"
+       "message": "Create subdirectory for illustration"
    },
    "_dynamic": {
-       "message": "动态"
-   },
-   "_relative_location_enabled_notice": {
-       "message": "（需要启用设置“允许扩展程序接管下载”）"
+       "message": "Dynamic"
    },
    "_when_multiple_images": {
-       "message": "当多张图片时"
+       "message": "When multiple images"
    },
    "_redownload": {
-       "message": "重新下载"
+       "message": "Re-download"
    },
    "_select_all": {
-       "message": "选择全部"
+       "message": "Select All"
    },
    "_unselect_all": {
-       "message": "全部取消"
+       "message": "Unselect All"
    },
    "_select_invert": {
-       "message": "反向选择"
+       "message": "Select Invert"
    },
    "_multiple_downloads_time_gap": {
-       "message": "多文件下载时间间隔"
+       "message": "Multiple downloads time gap"
    },
    "_unit_ms": {
-       "message": "单位：毫秒"
+       "message": "Unit: ms"
    },
    "_add_time_gap_between_each_file_download_to_prevent_download_issue": {
-       "message": "在每个文件下载之间添加时间间隔以防止下载问题"
+       "message": "Add time gap between each file download to prevent download issues"
    },
    "_diagnosis_messages": {
-       "message": "诊断信息"
+       "message": "Diagnosis Messages"
    },
    "_error_messages": {
-       "message": "错误信息"
+       "message": "Error Messages"
    },
    "_history_backup": {
-       "message": "记录备份"
+       "message": "History Backup"
    },
-   "_permission": {
-       "message": "权限"
+   "_permissions": {
+       "message": "Permissions"
    },
    "_open": {
-       "message": "打开"
+       "message": "Open"
    },
    "_view": {
-       "message": "查看"
+       "message": "View"
    },
    "_interface": {
-       "message": "界面"
+       "message": "Interface"
    },
    "_center": {
-       "message": "中"
+       "message": "Center"
    },
    "_left": {
-       "message": "左"
+       "message": "Left"
    },
    "_right": {
-       "message": "右"
+       "message": "Right"
    },
    "_download_panel_position": {
-       "message": "下载面板位置"
+       "message": "Download panel position"
    },
    "_download_panel_style": {
-       "message": "下载面板样式"
+       "message": "Download panel style"
    },
    "_series_id": {
-       "message": "系列ID"
+       "message": "Series ID"
    },
    "_series_title": {
-       "message": "系列标题"
+       "message": "Series Title"
    },
    "_series_order": {
-       "message": "系列序号"
+       "message": "Series Order"
    },
    "novel_rename_hint": {
-       "message": "例子: {authorId}_{author}_{id}_{title}. 你可以将小说不是系列作品时想要移除的部分放在两个#标签之间。例如：{author}#-{seriesTitle}-{seriesOrder}#-{title}-{id}"
+       "message": "Example: {authorId}_{author}_{id}_{title}. You can place the deleted part between the two # tags when the novel isn't in any series like this {author}#-{seriesTitle}-{seriesOrder}#-{title}-{id}"
    },
    "_show_reload_in_popup": {
-       "message": "在插件弹出框中显示重载插件"
+       "message": "Show reload in extension popup page"
    },
    "_show": {
-        "message": "显示"
+        "message": "Show"
    },
    "_pixiv_comic": {
-       "message": "Pixiv漫画"
+       "message": "Pixiv Comic"
    },
    "_rename_comic": {
-        "message": "重命名漫画"
+        "message": "Rename comic"
     },
     "_save_comic_in_relative_location": {
-        "message": "保存漫画到相对位置"
+        "message": "Save comic in relative location"
     },
     "_id": {
-        "message": "编号"
+        "message": "ID"
     },
     "_title": {
-        "message": "标题"
+        "message": "Title"
     },
     "_sub_title": {
-        "message": "子标题"
+        "message": "Sub title"
     },
     "_numbering_title": {
-        "message": "章节标题"
+        "message": "Numbering title"
     },
     "_work_id": {
-        "message": "作品编号"
+        "message": "Work ID"
     },
     "_work_title": {
-        "message": "作品标题"
+        "message": "Work title"
     },
     "_page_num": {
-        "message": "页码"
+        "message": "Page number"
     },
     "_download_metadata": {
-        "message": "下载元数据"
+        "message": "Download metadata"
     },
     "_download_metadata_when_downloading_works_only_support_works_from_pixiv_main_site": {
-        "message": "下载作品时同时下载元数据，仅支持Pixiv主站点（不支持小说类型）"
+        "message": "Download metadata when downloading works. Only support works (novel not included) from Pixiv main site"
     },
     "_all": {
-        "message": "全部"
+        "message": "All"
     },
     "_download_manager": {
-        "message": "下载管理器"
+        "message": "Download Manager"
     },
     "_show_in_folder": {
-        "message": "在文件夹中显示"
+        "message": "Show in folder"
     },
     "_download_task_settings": {
-        "message": "下载任务设置"
+        "message": "Download Task Settings"
     },
     "_global_settings": {
-        "message": "全局"
+        "message": "Global"
     },
     "_global_setting": {
-        "message": "全局"
+        "message": "Global Setting"
     },
     "_rename": {
-        "message": "重命名"
+        "message": "Rename"
     },
     "_downloaded": {
-        "message": "已下载"
+        "message": "Downloaded"
     },
     "_the_resource_is_already_in_download_manager": {
-        "message": "此资源的下载已存在于下载管理器中，是否重新下载？"
+        "message": "This download resource is already in download manager. Re-download it?"
     },
     "_download_manager_isnt_open": {
-        "message": "下载管理器似乎没有开启，你可以在设置页面或弹出页面中打开下载管理器。现在打开？"
+        "message": "It seems the download manager didn't open, you may open one in the Options or Popup page. Open it now?"
     },
     "_switch_to_it_and_close": {
-        "message": "切换并关闭"
+        "message": "Switch to it and close"
     },
     "_download_manager_is_already_opened": {
-        "message": "下载管理器已经开启。"
+        "message": "Download manager is already opened."
     },
     "_there_isnt_any_download": {
-        "message": "当前没有任何下载"
+        "message": "There isn't any download"
     },
     "_cancel": {
-        "message": "取消"
+        "message": "Cancel"
     },
     "_max_process_download_tasks": {
-        "message": "最大同时执行下载数"
+        "message": "Max process download tasks at same time"
     },
     "_rename_illustration_image": {
-        "message": "重命名绘画图片"
+        "message": "Rename illustration image"
     },
     "_rename_manga_image": {
-        "message": "重命名漫画图片"
+        "message": "Rename manga image"
     },
     "_rename_fanbox_post_image": {
-        "message": "重命名FANBOX文章图片"
+        "message": "Rename image in Fanbox Post"
     },
     "_rename_pixiv_comic_episode_image": {
-        "message": "重命名Pixiv Comic页码图片"
+        "message": "Rename image page in Pixiv Comic"
     },
     "_zip_multiple_images": {
-        "message": "将下载打包成ZIP"
+        "message": "Create zip file for downloads"
     },
     "_zip_multiple_images_desc": {
-        "message": "仅对绘画、漫画作品生效"
+        "message": "Only effect the illust, manga and comic work take"
     },
     "_download_gif": {
-        "message": "下载GIF"
+        "message": "DL GIF"
     },
     "_download_apng": {
-        "message": "下载APNG"
+        "message": "DL APNG"
     },
     "_download_webm": {
-        "message": "下载WEBM"
+        "message": "DL WEBM"
     },
     "_download_mp4": {
-        "message": "下载MP4"
+        "message": "DL MP4"
     },
     "_download_custom": {
-        "message": "自定义下载"
+        "message": "DL Custom"
     },
     "_download_added": {
-        "message": "下载已添加"
+        "message": "Download added"
     },
     "_opening_download_manager": {
-        "message": "下载管理器打开中，请稍后..."
+        "message": "Opening Download Manager, please wait..."
     },
     "_running_too_many_download_tasks_at_same_time_may_be_cause_high_CPU_usage": {
-        "message": "同时进行太多下载会导致CPU高负载"
+        "message": "Running too many download tasks at same time will cause high CPU usage"
     },
     "_use_standalone_download_manage": {
-        "message": "使用独立的下载管理器"
+        "message": "Use standalone download manager"
     },
     "_always": {
-        "message": "总是"
+        "message": "Always"
     },
     "_when_there_is_only_one_image": {
-        "message": "只有一张图片时"
+        "message": "When only one image"
     },
     "_dont_create_work_folder": {
-        "message": "当...不创建作品文件夹"
+        "message": "Don't create work folder when ..."
     },
     "_dont_create_work_folder_desc": {
-        "message": "此设置只对绘画和FanBox作品有效"
+        "message": "Only effect the illustration and Fanbox work"
     },
     "_combin_work_and_image_rename_rule_when_dont_create_work_folder": {
-        "message": "当只有不创建作品文件夹时，连接作品和图片重命名规则（下划线连接）"
+        "message": "Combine work and image rename rule with \"_\" when don't create work folder"
     },
     "_new_settings": {
-        "message": "新选项"
+        "message": "New Settings"
     },
     "_legacy": {
-        "message": "经典"
+        "message": "Legacy"
     },
     "_download_mode": {
-        "message": "下载模式"
+        "message": "Download mode"
     },
     "_download_mode_desc": {
-        "message": "经典模式下不支持FFmpeg以及生成MP4"
+        "message": "In legacy mode, ffmpeg and .mp4 generation isn't supported"
     },
     "_only_if_the_work_has_multiple_images": {
-        "message": "仅当作品有多张图时"
+        "message": "Only if the work has multiple images"
     },
     "_only_when_downloading_multiple_images": {
-        "message": "仅当下载多张图时"
+        "message": "Only when downloading multiple images"
     },
     "_only_if_the_work_has_one_image": {
-        "message": "仅当作品有一个作品时"
+        "message": "Only if the work has one image"
     },
     "_only_when_downloading_one_image": {
-        "message": "仅当下载单张图时"
+        "message": "Only when downloading one image"
     },
     "_download_save_mode": {
-        "message": "下载保存模式"
+        "message": "Download save mode"
     },
     "_download_save_mode_0_desc": {
-        "message": "将下载的图片打包到ZIP文件"
+        "message": "Pack downloaded image(s) into zip and save"
     },
     "_download_save_mode_1_desc": {
-        "message": "将下载的图片直接保存到文件夹"
+        "message": "Save downloaded image(s) in folder directly"
     },
     "_pack_in_zip": {
-        "message": "打包到ZIP"
+        "message": "Pack in zip"
     },
     "_save_in_folder": {
-        "message": "保存到文件夹"
+        "message": "Save in folder"
     },
     "_always_dont": {
-        "message": "总是不"
+        "message": "Always dont"
     },
     "_always_create": {
-        "message": "总是创建"
+        "message": "Always create"
+    }
+    ,"_reload": {
+        "message": "Reload"
+    },
+    "_not_tested": {
+        "message": "Not tested"
+    },
+    "_import_to_eagle": {
+        "message": "Import to Eagle"
+    },
+    "_import_to_eagle_apng": {
+        "message": "Eagle APNG"
+    },
+    "_import_to_eagle_gif": {
+        "message": "Eagle GIF"
+    },
+    "_import_to_eagle_webm": {
+        "message": "Eagle WebM"
+    },
+    "_import_to_eagle_mp4": {
+        "message": "Eagle MP4"
+    },
+    "_import_to_eagle_custom": {
+        "message": "Eagle Custom"
+    },
+    "_eagle_import_added": {
+        "message": "Added to Eagle queue"
+    },
+    "_eagle_import_disabled": {
+        "message": "Eagle import is disabled"
+    },
+    "_eagle_import_not_supported": {
+        "message": "This work cannot be imported to Eagle"
+    },
+    "_eagle_no_import_item": {
+        "message": "There is no image to import"
+    },
+    "_eagle_settings": {
+        "message": "Eagle"
+    },
+    "_enable_eagle_import": {
+        "message": "Enable Eagle import"
+    },
+    "_enable_eagle_import_desc": {
+        "message": "Show Eagle import actions in the content panel"
+    },
+    "_eagle_api_url": {
+        "message": "Eagle API URL"
+    },
+    "_eagle_api_url_desc": {
+        "message": "Only http://localhost:41595 and http://127.0.0.1:41595 are supported"
+    },
+    "_eagle_connection_status": {
+        "message": "Connection status"
+    },
+    "_eagle_test_connection": {
+        "message": "Test connection"
+    },
+    "_eagle_connection_ok": {
+        "message": "Connected"
+    },
+    "_eagle_connection_failed": {
+        "message": "Connection failed"
+    },
+    "_eagle_base_folder": {
+        "message": "Base folder"
+    },
+    "_eagle_reload_folders": {
+        "message": "Reload folders"
+    },
+    "_eagle_reload_folders_desc": {
+        "message": "Fetch the latest folder list from Eagle"
+    },
+    "_eagle_create_work_folder": {
+        "message": "Create work folder"
+    },
+    "_eagle_create_work_folder_desc": {
+        "message": "Create a work subfolder in Eagle before importing items"
+    },
+    "_eagle_api_url_invalid": {
+        "message": "Only the local Eagle API URL is allowed"
+    },
+    "_imported_to_eagle": {
+        "message": "In Eagle"
     }
 }

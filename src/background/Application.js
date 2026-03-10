@@ -155,29 +155,35 @@ class Application {
    * and the property value is `ws`
    * @param {{ to: string, action: string, args: any }} message
    */
-  async onMessage(message, sender, sendResponse) {
+  onMessage(message, sender, sendResponse) {
     /**
      * Handling incoming message which needs call service method, if the sender
      * need a response, the method of service need return a valid that isn't
      * undefined
      */
     if (message.to === 'ws' && message.action) {
-      let [serviceName, methodName] = message.action.split(':');
+      (async () => {
+        let [serviceName, methodName] = message.action.split(':');
 
-      let service = this.getService(serviceName);
+        let service = this.getService(serviceName);
 
-      let params = { sender };
+        let params = { sender };
 
-      if (message.args) {
-        for (let name in message.args) {
-          params[name] = message.args[name];
+        if (message.args) {
+          for (let name in message.args) {
+            params[name] = message.args[name];
+          }
         }
-      }
 
-      let result = await service[methodName].call(service, params);
+        let result = await service[methodName].call(service, params);
 
-      sendResponse(result);
+        sendResponse(result);
+      })();
+
+      return true;
     }
+
+    return false;
   }
 
   /**

@@ -19,6 +19,10 @@ class Db {
       histories: '++id,&uid,title,userName,cover,url,type,r,downloaded_at,visited_at',
       tracked_errors: '++id,error,created_at',
     });
+    this.database.version(2).stores({
+      histories: '++id,&uid,title,userName,cover,url,type,r,downloaded_at,eagle_imported_at,visited_at',
+      tracked_errors: '++id,error,created_at',
+    });
   }
 
   /**

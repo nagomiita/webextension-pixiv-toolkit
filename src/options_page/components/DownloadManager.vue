@@ -102,6 +102,16 @@ export default {
         return 'Pixiv Comic Episode';
       } else if (download.type === 'FANBOX_POST') {
         return 'Fanbox Post';
+      } else if (download.type === 'EAGLE_PIXIV_ILLUST') {
+        return 'Eagle Pixiv Illust';
+      } else if (download.type === 'EAGLE_PIXIV_MANGA') {
+        return 'Eagle Pixiv Manga';
+      } else if (download.type === 'EAGLE_PIXIV_COMIC_EPISODE') {
+        return 'Eagle Pixiv Comic Episode';
+      } else if (download.type === 'EAGLE_FANBOX_POST') {
+        return 'Eagle Fanbox Post';
+      } else if (download.type === 'EAGLE_PIXIV_UGOIRA') {
+        return 'Eagle Pixiv Ugoira ' + (download.convertType || 'Custom');
       }
 
       throw new RuntimeError('Invalid download type');

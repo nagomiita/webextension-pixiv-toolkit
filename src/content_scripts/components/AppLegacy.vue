@@ -13,16 +13,24 @@
     <template v-if="!isUgoira">
       <ptk-button @click="download"
       >{{ tl('_download') }}{{ generalTaskProgressText }}</ptk-button>
+      <ptk-button v-if="canImportToEagle" @click="importToEagle"
+      >{{ tl('_import_to_eagle') }}</ptk-button>
     </template>
     <template v-else>
       <ptk-button @click="download({ ugoiraConvertType: 'gif' })"
       >{{ tl('_download_gif') }}{{ gifProgress }}</ptk-button>
+      <ptk-button v-if="canImportToEagle" @click="importToEagle({ ugoiraConvertType: 'gif' })"
+      >{{ tl('_import_to_eagle_gif') }}</ptk-button>
 
       <ptk-button @click="download({ ugoiraConvertType: 'apng' })"
       >{{ tl('_download_apng') }}{{ apngProgress }}</ptk-button>
+      <ptk-button v-if="canImportToEagle" @click="importToEagle({ ugoiraConvertType: 'apng' })"
+      >{{ tl('_import_to_eagle_apng') }}</ptk-button>
 
       <ptk-button @click="download({ ugoiraConvertType: 'webm' })"
       >{{ tl('_download_webm') }}{{ webmProgress }}</ptk-button>
+      <ptk-button v-if="canImportToEagle" @click="importToEagle({ ugoiraConvertType: 'webm' })"
+      >{{ tl('_import_to_eagle_webm') }}</ptk-button>
     </template>
     <page-selector
       ref="pageSelector"
@@ -122,6 +130,12 @@ export default {
 
     downloadButtonType() {
       return this.downloadedAt > 0 ? 'success' : '';
+    },
+
+    canImportToEagle() {
+      return !!this.browserItems.enableEagleImport &&
+        this.resource &&
+        this.resource.getType() !== 'pixiv_novel';
     },
 
     isUgoira() {
@@ -353,14 +367,76 @@ export default {
       }
     },
 
-    getDownloadArgs({ ugoiraConvertType }) {
+    getDownloadArgs({ ugoiraConvertType, selectedIndexes = this.selectedIndexes } = {}) {
       return {
         unpackedResource: this.resource.unpack(),
         options: {
           ugoiraConvertType,
-          selectedIndexes: this.selectedIndexes
+          selectedIndexes
         }
       };
+    },
+
+    getEagleErrorMessage(errorName) {
+      switch (errorName) {
+        case 'EagleImportDisabledError':
+          return this.tl('_eagle_import_disabled');
+        case 'EagleUnsupportedResourceError':
+          return this.tl('_eagle_import_not_supported');
+        case 'EagleNoImportItemError':
+          return this.tl('_eagle_no_import_item');
+        case 'EagleApiUrlNotAllowedError':
+          return this.tl('_eagle_api_url_invalid');
+        case 'EagleConnectionError':
+        case 'EagleApiRequestError':
+        case 'EagleApiResponseError':
+        case 'EagleInvalidResponseError':
+        case 'EagleBlobReadError':
+          return this.tl('_eagle_connection_failed');
+        default:
+          return this.tl('_unkown_error') + ': ' + errorName;
+      }
+    },
+
+    async importWithEagle({ ugoiraConvertType, selectedIndexes, redownload = false } = {}) {
+      await this.ensureDownloadManagerOpen(async () => {
+        const args = this.getDownloadArgs({ ugoiraConvertType, selectedIndexes });
+        args.options.redownload = redownload;
+
+        let response = await browser.runtime.sendMessage({
+          action: 'eagle:addImport',
+          args
+        });
+
+        if (!response.result && redownload === false) {
+          if (response.errorName === 'DownloadTaskExistsError') {
+            if (window.confirm(this.tl(`_the_resource_is_already_in_download_manager`))) {
+              this.importWithEagle({ ugoiraConvertType, selectedIndexes, redownload: true });
+            }
+
+            return;
+          }
+
+          alert(this.getEagleErrorMessage(response.errorName));
+          return;
+        }
+
+        this.displayNotice(this.tl('_eagle_import_added'));
+      });
+    },
+
+    importToEagle({ ugoiraConvertType, selectedIndexes } = {}) {
+      if (!this.canImportToEagle) {
+        alert(this.tl('_eagle_import_not_supported'));
+        return;
+      }
+
+      if (!this.isUgoira && this.pages && this.pages.length > 1 && !Array.isArray(selectedIndexes)) {
+        this.$refs.pageSelector && this.$refs.pageSelector.openSelectionDialog('eagle');
+        return;
+      }
+
+      this.importWithEagle({ ugoiraConvertType, selectedIndexes });
     },
 
     async download({ ugoiraConvertType, selectedIndexes } = {}) {
@@ -381,8 +457,12 @@ export default {
       this.selectedIndexes = selectedIndexes;
     },
 
-    pageSelectorDownloadHandler({ selectedPageIndexes }) {
-      this.download({ selectedIndexes: selectedPageIndexes });
+    pageSelectorDownloadHandler({ selectedPageIndexes, mode }) {
+      if (mode === 'eagle') {
+        this.importToEagle({ selectedIndexes: selectedPageIndexes });
+      } else {
+        this.download({ selectedIndexes: selectedPageIndexes });
+      }
     },
 
     disableGuide() {

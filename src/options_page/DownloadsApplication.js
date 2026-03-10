@@ -98,27 +98,33 @@ class Application {
    * script
    * @param {*} param0
    */
-  async onMessage(message, sender, sendResponse) {
+  onMessage(message, sender, sendResponse) {
     /**
      * Handling incoming message which needs call service method
      */
     if ((message.to !== 'ws' || message.to === 'op') && message.action) {
-      let [serviceName, methodName] = message.action.split(':');
+      (async () => {
+        let [serviceName, methodName] = message.action.split(':');
 
-      let service = this.getService(serviceName);
+        let service = this.getService(serviceName);
 
-      let params = { sender };
+        let params = { sender };
 
-      if (message.args) {
-        for (let name in message.args) {
-          params[name] = message.args[name];
+        if (message.args) {
+          for (let name in message.args) {
+            params[name] = message.args[name];
+          }
         }
-      }
 
-      let result = await service[methodName].call(service, params);
+        let result = await service[methodName].call(service, params);
 
-      return sendResponse(result);
+        sendResponse(result);
+      })();
+
+      return true;
     }
+
+    return false;
   }
 }
 

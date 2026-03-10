@@ -36,6 +36,8 @@
         "unlimitedStorage"
     ],
     "host_permissions": [
+        "http://localhost:41595/*",
+        "http://127.0.0.1:41595/*",
         "*://*.pixiv.net/*",
         "*://*.pximg.net/*",
         "*://*.techorus-cdn.com/*",
@@ -70,8 +72,6 @@
                 "lib/jszip/jszip-utils.min.js",
                 "lib/gifjs/gif.js",
                 "lib/whammy.js",
-                "lib/js-epub-maker/js-epub-maker-idpf-wasteland-template.js",
-                "lib/js-epub-maker/js-epub-maker.js",
                 "content_scripts/app.js"
             ]
         }

@@ -4,6 +4,8 @@
 
     <download-options style="margin-bottom:30px;"></download-options>
 
+    <eagle-options style="margin-bottom:30px;"></eagle-options>
+
     <history-options style="margin-bottom:30px;"></history-options>
 
     <search-options v-if="false"></search-options>
@@ -19,6 +21,7 @@ import '@@/assets/global.scss';
 import CopyStr from '@/modules/Util/CopyStr';
 import DownloadTaskSettings from '@@/components/options/DownloadTaskSettings';
 import DownloadOptions from '@@/components/options/DownloadOptions';
+import EagleOptions from '@@/components/options/EagleOptions';
 import HistoryOptions from '@@/components/options/HistoryOptions';
 import SearchOptions from '@@/components/options/SearchOptions';
 import InterfaceOptions from '@@/components/options/InterfaceOptions';
@@ -31,6 +34,7 @@ export default {
   components: {
     'download-task-settings': DownloadTaskSettings,
     'download-options': DownloadOptions,
+    'eagle-options': EagleOptions,
     'history-options': HistoryOptions,
     'search-options': SearchOptions,
     'interface-options': InterfaceOptions,
