@@ -90,10 +90,15 @@ class NovelDownloadTask extends AbstractDownloadTask {
 
   async makeTxtBook() {
     let contentParts = [];
+    const tags = Array.isArray(this.context.tags) ? this.context.tags : [];
 
     contentParts.push(this.url);
     contentParts.push(this.context.userName);
     contentParts.push(this.title);
+
+    if (tags.length > 0) {
+      contentParts.push(`Tags: ${tags.join(', ')}`);
+    }
 
     if (this.options.includeDescription) {
       contentParts.push(this.context.description.replace(/<br\s*\/>/ig, "\r\n").trim());

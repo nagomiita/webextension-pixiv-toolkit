@@ -77,6 +77,23 @@ class NovelParser {
     throw new RuntimeError(`Can't parse the novel id out. url: ${this.url}`);
   }
 
+  extractTags(context) {
+    const rawTags = context && context.tags && Array.isArray(context.tags.tags) ? context.tags.tags :
+      (context && Array.isArray(context.tags) ? context.tags : []);
+
+    return Array.from(new Set(rawTags.map(tag => {
+      if (typeof tag === 'string') {
+        return tag.trim();
+      }
+
+      if (tag && typeof tag === 'object') {
+        return `${tag.tag || tag.name || ''}`.trim();
+      }
+
+      return '';
+    }).filter(Boolean)));
+  }
+
   /**
    * Make context standard
    * @param {object} context
@@ -102,6 +119,7 @@ class NovelParser {
       description: context.description,
       coverUrl: context.coverUrl,
       cover: context.coverUrl,
+      tags: this.extractTags(context),
       sections,
       createDate: context.createDate,
       uploadDate: context.uploadDate,
@@ -113,7 +131,8 @@ class NovelParser {
       // contexts from parsed
       year: dateFormatter.getYear(),
       month: dateFormatter.getMonth(),
-      day: dateFormatter.getDay()
+      day: dateFormatter.getDay(),
+      __raw: context,
     }
 
     // series data
