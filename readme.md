@@ -81,7 +81,7 @@ If you are using Chrome, you can download it from [Chrome web store](https://chr
 ## **How to build**
 To build the extension, you need these tools below:
 
-* nodejs
+* nodejs 16.18.0
 * python2
 
 After you install these, run commands step by step:
