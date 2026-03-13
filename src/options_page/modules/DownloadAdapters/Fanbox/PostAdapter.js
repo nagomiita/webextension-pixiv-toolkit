@@ -1,5 +1,5 @@
 import GlobalSettings from "@/modules/GlobalSettings";
-import { FanboxPostDownloadTask as PostDownloadTask } from "@/options_page/modules/DownloadTasks";
+import { FanboxPostDownloadTask as PostDownloadTask, FanboxTextPostDownloadTask as TextPostDownloadTask } from "@/options_page/modules/DownloadTasks";
 import { FanboxPostParser } from "@/modules/Parser";
 import AbstractDownloadTask from "../../DownloadTasks/AbstractDownloadTask";
 import AbstractResource from "@/modules/PageResource/AbstractResource";
@@ -56,6 +56,15 @@ class PostAdapter {
      * Append current url to context
      */
     this.context.targetUrl = this.url;
+
+    if (this.context.postType === 'text') {
+      return TextPostDownloadTask.create({
+        id: resource.getUid(),
+        url: this.url,
+        renameRule: this.settings.fanboxTextPostRenameRule || '{id}_{title}',
+        context: this.context
+      });
+    }
 
     return PostDownloadTask.create({
       id: resource.getUid(),

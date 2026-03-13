@@ -17,6 +17,11 @@ class PostParser {
   IMAGE_TYPE = 'image';
 
   /**
+   * @type {string}
+   */
+  TEXT_TYPE = 'text';
+
+  /**
    * @type {string} Target page url
    */
   url;
@@ -118,11 +123,33 @@ class PostParser {
       context.body.images.forEach(image => {
         images.push(image.originalUrl);
       });
+    } else if (context.type === this.TEXT_TYPE) {
+      // Text posts have no images
     } else {
       throw new RuntimeError(`Invalid post type. type: ${context.type}`);
     }
 
     return images;
+  }
+
+  /**
+   * Extract text content from text-type post
+   * @param {Object} context
+   * @returns {string}
+   */
+  findText(context) {
+    if (context.type === this.TEXT_TYPE && context.body && context.body.text) {
+      return context.body.text;
+    }
+
+    if (context.type === this.ARTICLE_TYPE && context.body && context.body.blocks) {
+      return context.body.blocks
+        .filter(item => item.type === 'p')
+        .map(item => item.text || '')
+        .join("\n");
+    }
+
+    return '';
   }
 
   /**
@@ -143,6 +170,8 @@ class PostParser {
       month: dateFormatter.getMonth(),
       day: dateFormatter.getDay(),
       pages: this.findImages(context),
+      postType: context.type,
+      text: this.findText(context),
       r: context.hasAdultContent,
       __raw: context,
     };

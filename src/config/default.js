@@ -228,6 +228,7 @@ export default Object.assign({}, {
     fanboxPostRenameRule: '{id}_{title}/{pageNum}',
     fanboxPostPageNumberStartWithOne: -2,
     fanboxPostPageNumberLength: -2,
+    fanboxTextPostRenameRule: '{id}_{title}',
     globalTaskPageNumberStartWithOne: 0, // 0: disable, 1: enable
     globalTaskPageNumberLength: -1, // -1: dynamic, 0: disable, 2-4,
     maxProcessDownloadTasks: 3,
