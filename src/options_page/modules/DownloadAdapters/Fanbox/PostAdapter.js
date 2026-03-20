@@ -57,7 +57,10 @@ class PostAdapter {
      */
     this.context.targetUrl = this.url;
 
-    if (this.context.postType === 'text') {
+    const isTextOnly = this.context.postType === 'text' ||
+      (this.context.text && (!this.context.pages || this.context.pages.length === 0));
+
+    if (isTextOnly) {
       return TextPostDownloadTask.create({
         id: resource.getUid(),
         url: this.url,
