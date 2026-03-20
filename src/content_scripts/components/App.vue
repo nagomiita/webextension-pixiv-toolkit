@@ -155,9 +155,12 @@ export default {
     },
 
     canImportToEagle() {
-      return !!this.browserItems.enableEagleImport &&
-        this.resource &&
-        this.resource.getType() !== 'pixiv_novel';
+      if (!this.browserItems.enableEagleImport || !this.resource) return false;
+      if (this.resource.getType() === 'pixiv_novel') return false;
+      // Fanbox text posts have no images to import
+      if (this.resource.getType() === 'fanbox_post' &&
+          this.resource.getContext().postType === 'text') return false;
+      return true;
     },
 
     hasTwitterVideo() {

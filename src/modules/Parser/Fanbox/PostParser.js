@@ -192,9 +192,6 @@ class PostParser {
       this.request = new Request(this.buildContextUrl(this.context.postId), {
         method: 'GET',
         credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        }
       });
 
       this.request.addListener('onload', data => {
