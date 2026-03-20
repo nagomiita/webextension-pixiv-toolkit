@@ -2,6 +2,7 @@ import {
   FanboxPostAdapter,
   PixivComicEpisodeAdapter,
   PixivIllustAdapter, PixivNovelAdapter,
+  TwitterPostAdapter,
 } from '@/content_scripts/modules/PageAdapters';
 import AbstractAdapter from '@/content_scripts/modules/PageAdapters/AbstractAdapter';
 import { RuntimeError } from '@/errors';
@@ -31,6 +32,10 @@ class Adapter {
     {
       type: 'fanbox_post',
       adapter: FanboxPostAdapter,
+    },
+    {
+      type: 'twitter_post',
+      adapter: TwitterPostAdapter,
     },
   ];
 

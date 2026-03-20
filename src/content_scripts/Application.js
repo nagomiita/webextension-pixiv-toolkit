@@ -95,16 +95,23 @@ class Application {
     } catch (error) {
       browser.runtime.sendMessage({ to: 'ws', action: 'badge:deactiveAction' })
 
-      if (this.UIApp) {
-        this.UIApp.unload();
-        this.UIApp = null;
+      let isUnsupportedPage = error && error.name === 'RuntimeError' && typeof error.message === 'string' && error.message.startsWith('Invalid page. url:');
+
+      if (isUnsupportedPage) {
+        // Unsupported page: fully unload the UI
+        if (this.UIApp) {
+          this.UIApp.unload();
+          this.UIApp = null;
+        }
+      } else {
+        // Supported page but resource fetch failed: keep UI for mascot
+        if (!this.UIApp) {
+          this.UIApp = await UIApplication.createApp();
+        }
+        console.error(error);
       }
 
       this.resource = null;
-
-      if (!(error && error.name === 'RuntimeError' && typeof error.message === 'string' && error.message.startsWith('Invalid page. url:'))) {
-        console.error(error);
-      }
     }
   }
 }

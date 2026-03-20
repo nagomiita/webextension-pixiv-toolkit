@@ -5,6 +5,7 @@ import {
   PixivComicEpisdoeResource,
   PixivIllustResource,
   PixivNovelResource,
+  TwitterPostResource,
 } from '@/modules/PageResource/index';
 import MultiplePageImportTask from "./EagleImportTasks/MultiplePageImportTask";
 import UgoiraImportTask from "./EagleImportTasks/UgoiraImportTask";
@@ -113,6 +114,36 @@ class EagleImportAdapter {
     }));
   }
 
+  createTwitterImportTask(resource, options, context) {
+    // Use video URLs as pages if no images but videos exist
+    let pages = context.pages;
+    if ((!Array.isArray(pages) || pages.length < 1) && context.videos && context.videos.length > 0) {
+      pages = context.videos.map(v => v.url);
+    }
+
+    if (!Array.isArray(pages) || pages.length < 1) {
+      const error = new RuntimeError('There is no media to import.');
+      error.name = 'EagleNoImportItemError';
+      throw error;
+    }
+
+    return MultiplePageImportTask.create(Object.assign(this.getCommonOptions(resource, context), {
+      id: `eagle:${resource.getUid()}`,
+      type: 'EAGLE_TWITTER_POST',
+      resourceType: 'twitter_post',
+      pages: pages,
+      selectedIndexes: options.selectedIndexes,
+      renameRule: this.settings.twitterPostRenameRule,
+      renameImageRule: this.settings.twitterPostRenameImageRule,
+      pageNumberStartWithOne: this.settings.twitterPostPageNumberStartWithOne === -2 ?
+        this.settings.globalTaskPageNumberStartWithOne :
+        this.settings.twitterPostPageNumberStartWithOne,
+      pageNumberLength: this.settings.twitterPostPageNumberLength === -2 ?
+        this.settings.globalTaskPageNumberLength :
+        this.settings.twitterPostPageNumberLength,
+    }));
+  }
+
   createFanboxImportTask(resource, options, context) {
     if (!Array.isArray(context.pages) || context.pages.length < 1) {
       const error = new RuntimeError('There is no image to import.');
@@ -155,6 +186,10 @@ class EagleImportAdapter {
 
     if (resource instanceof FanboxPostResource) {
       return this.createFanboxImportTask(resource, options, context);
+    }
+
+    if (resource instanceof TwitterPostResource) {
+      return this.createTwitterImportTask(resource, options, context);
     }
 
     if (resource instanceof PixivNovelResource) {

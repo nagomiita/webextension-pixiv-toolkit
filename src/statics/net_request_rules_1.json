@@ -44,5 +44,28 @@
             "options_page/downloads.html"
         ]
     }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://x.com"
+        }
+      ]
+    },
+    "condition": {
+      "requestDomains": [
+        "twimg.com"
+      ],
+      "resourceTypes": [
+        "xmlhttprequest",
+        "other"
+      ]
+    }
   }
 ]

@@ -4,12 +4,14 @@ import {
   PixivComicEpisodeAdapter,
   PixivIllustAdapter,
   PixivNovelAdapter,
+  TwitterPostAdapter,
  } from "./DownloadAdapters";
 import {
   FanboxPostResource,
   PixivComicEpisdoeResource,
   PixivIllustResource,
   PixivNovelResource,
+  TwitterPostResource,
 } from '@/modules/PageResource/index';
 import AbstractAdapter from "@/content_scripts/modules/PageAdapters/AbstractAdapter";
 import AbstractDownloadTask from "./DownloadTasks/AbstractDownloadTask";
@@ -31,6 +33,7 @@ class DownloadAdapter {
     this.adapterMaps.set(PixivComicEpisdoeResource, PixivComicEpisodeAdapter);
     this.adapterMaps.set(PixivIllustResource, PixivIllustAdapter);
     this.adapterMaps.set(PixivNovelResource, PixivNovelAdapter);
+    this.adapterMaps.set(TwitterPostResource, TwitterPostAdapter);
   }
 
   /**

@@ -241,6 +241,11 @@ export default Object.assign({}, {
     mangaRenameImageRule: 'p{pageNum}',
     pixivComicEpisodeRenameImageRule: 'p{pageNum}',
     fanboxPostRenameImageRule: 'p{pageNum}',
+    twitterPostRenameRule: '{id}_{userName}',
+    twitterPostRenameImageRule: 'p{pageNum}',
+    twitterVideoRenameRule: '{id}_{userName}',
+    twitterPostPageNumberStartWithOne: -2,
+    twitterPostPageNumberLength: -2,
 
     /**
      * internal

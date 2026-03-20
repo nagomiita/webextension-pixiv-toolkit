@@ -26,4 +26,11 @@ export default [
       /^https:\/\/([a-z\d_-]+\.)?fanbox\.cc\/posts\/([\d]+)/i
     ],
   },
+  {
+    type: 'twitter_post',
+    patterns: [
+      /^https:\/\/(www\.)?x\.com\/[a-zA-Z0-9_]+\/status\/(\d+)/i,
+      /^https:\/\/(www\.)?twitter\.com\/[a-zA-Z0-9_]+\/status\/(\d+)/i,
+    ],
+  },
 ];

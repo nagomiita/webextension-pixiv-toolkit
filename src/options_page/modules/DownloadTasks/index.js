@@ -5,6 +5,8 @@ import PixivIllustDownloadTask from "./Pixiv/IllustDownloadTask";
 import PixivMangaDownloadTask from "./Pixiv/MangaDownloadTask";
 import PixivNovelDownloadTask from "./Pixiv/NovelDownloadTask";
 import PixivUgoiraDownloadTask from "./Pixiv/UgoiraDownloadTask";
+import TwitterPostDownloadTask from "./Twitter/PostDownloadTask";
+import TwitterVideoDownloadTask from "./Twitter/VideoDownloadTask";
 
 export {
   FanboxPostDownloadTask,
@@ -14,4 +16,6 @@ export {
   PixivMangaDownloadTask,
   PixivNovelDownloadTask,
   PixivUgoiraDownloadTask,
+  TwitterPostDownloadTask,
+  TwitterVideoDownloadTask,
 };

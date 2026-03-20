@@ -5,7 +5,11 @@
  * @LastEditTime: 2024-08-11 17:20:18
 -->
 <template>
-  <control-panel v-if="showApp" :lastError="lastError"
+  <div>
+  <div class="ptk__mascot-btn" @click="togglePanel" :title="showApp ? 'Open download panel' : ''">
+    <img :src="mascotUrl" alt="PTK" />
+  </div>
+  <control-panel v-if="showApp" ref="controlPanel" :lastError="lastError"
     :panelStyle="browserItems.downloadPanelStyle"
     :panelPosition="browserItems.downloadPanelPosition"
     :class="downloadButtonType"
@@ -13,6 +17,8 @@
     <template v-if="!isUgoira">
       <ptk-button @click="download"
       >{{ tl('_download') }}{{ generalTaskProgressText }}</ptk-button>
+      <ptk-button v-if="hasTwitterVideo" @click="downloadVideo"
+      >DL Video</ptk-button>
       <ptk-button v-if="canImportToEagle" @click="importToEagle"
       >{{ tl('_import_to_eagle') }}</ptk-button>
     </template>
@@ -57,6 +63,7 @@
       @click="passToPixivOmina"
     >Pixiv Omina</ptk-button>
   </control-panel>
+  </div>
 </template>
 
 <script>
@@ -114,6 +121,8 @@ export default {
 
       noticeMessage: '',
 
+      mascotFiles: [],
+
       ugoiraTaskProgresses: {
         'gif': { d: 0, p: 0 },
         'apng': { d: 0, p: 0 },
@@ -127,6 +136,13 @@ export default {
   },
 
   computed: {
+    mascotUrl() {
+      const mascots = this.mascotFiles;
+      if (!mascots || mascots.length === 0) return '';
+      const index = Math.floor(Math.random() * mascots.length);
+      return browser.runtime.getURL('mascots/' + mascots[index]);
+    },
+
     /**
      * @returns {boolean}
      */
@@ -142,6 +158,12 @@ export default {
       return !!this.browserItems.enableEagleImport &&
         this.resource &&
         this.resource.getType() !== 'pixiv_novel';
+    },
+
+    hasTwitterVideo() {
+      return this.resource &&
+        this.resource.getType() === 'twitter_post' &&
+        this.resource.hasVideo && this.resource.hasVideo();
     },
 
     isUgoira() {
@@ -183,6 +205,12 @@ export default {
   },
 
   created() {
+    // Load mascot file list
+    fetch(browser.runtime.getURL('mascots/index.json'))
+      .then(r => r.json())
+      .then(files => { this.mascotFiles = files; })
+      .catch(() => { this.mascotFiles = []; });
+
     /**
      * @type {Adapter}
      */
@@ -373,19 +401,20 @@ export default {
       }
     },
 
-    getDownloadArgs({ ugoiraConvertType, selectedIndexes = this.selectedIndexes } = {}) {
+    getDownloadArgs({ ugoiraConvertType, selectedIndexes = this.selectedIndexes, downloadVideo } = {}) {
       return {
         unpackedResource: this.resource.unpack(),
         options: {
           ugoiraConvertType,
-          selectedIndexes
+          selectedIndexes,
+          downloadVideo
         }
       };
     },
 
-    async downloadWithDownloadManager({ ugoiraConvertType, selectedIndexes, redownload = false }) {
+    async downloadWithDownloadManager({ ugoiraConvertType, selectedIndexes, redownload = false, downloadVideo } = {}) {
       await this.ensureDownloadManagerOpen(async () => {
-        const args = this.getDownloadArgs({ ugoiraConvertType, selectedIndexes });
+        const args = this.getDownloadArgs({ ugoiraConvertType, selectedIndexes, downloadVideo });
         args.options.redownload = redownload;
 
         let response = await browser.runtime.sendMessage({
@@ -428,8 +457,18 @@ export default {
       });
     },
 
+    togglePanel() {
+      if (this.$refs.controlPanel) {
+        this.$refs.controlPanel.handlerClickHandle();
+      }
+    },
+
     download({ ugoiraConvertType, selectedIndexes } = {}) {
       this.downloadWithDownloadManager({ ugoiraConvertType, selectedIndexes });
+    },
+
+    downloadVideo() {
+      this.downloadWithDownloadManager({ downloadVideo: true });
     },
 
     getEagleErrorMessage(errorName) {
@@ -528,6 +567,34 @@ export default {
 </script>
 
 <style lang="scss">
+.ptk__mascot-btn {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  width: 192px;
+  height: 192px;
+  cursor: pointer;
+  z-index: 100000;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+
+  &:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+  }
+}
+
 .ptk__pixiv-omina__btn {
   margin-left: 5px;
 }

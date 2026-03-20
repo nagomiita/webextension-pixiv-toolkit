@@ -41,12 +41,16 @@
         "*://*.pixiv.net/*",
         "*://*.pximg.net/*",
         "*://*.techorus-cdn.com/*",
-        "*://*.fanbox.cc/*"
+        "*://*.fanbox.cc/*",
+        "*://*.x.com/*",
+        "*://*.twitter.com/*",
+        "*://*.twimg.com/*"
     ],
     "web_accessible_resources": [
         {
             "resources": [
-                "lib/ffmpeg/ffmpeg-core.wasm"
+                "lib/ffmpeg/ffmpeg-core.wasm",
+                "mascots/*"
             ],
             "matches": [
                 "<all_urls>"
@@ -58,7 +62,9 @@
             "matches": [
                 "*://www.pixiv.net/*",
                 "*://*.fanbox.cc/*",
-                "*://comic.pixiv.net/*"
+                "*://comic.pixiv.net/*",
+                "*://x.com/*",
+                "*://twitter.com/*"
             ],
             "css": [
                 "content_scripts/static/css/app.css"
@@ -74,6 +80,17 @@
                 "lib/whammy.js",
                 "content_scripts/app.js"
             ]
+        },
+        {
+            "matches": [
+                "*://x.com/*",
+                "*://twitter.com/*"
+            ],
+            "js": [
+                "lib/twitter-interceptor.js"
+            ],
+            "world": "MAIN",
+            "run_at": "document_start"
         }
     ],
     "options_page": "options_page/index.html"

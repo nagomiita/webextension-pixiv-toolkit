@@ -1,11 +1,40 @@
 'use strict'
 
+const fs = require('fs');
+const path = require('path');
 const packageInfo = require('../package.json');
 const baseConfig = require('./webpack.base.config')();
 const utils = require('./utils');
 const { merge } = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+/**
+ * Plugin to generate mascots/index.json from data/*.png
+ */
+class MascotIndexPlugin {
+  constructor(dataDir, outputDir) {
+    this.dataDir = dataDir;
+    this.outputDir = outputDir;
+  }
+
+  apply(compiler) {
+    compiler.hooks.afterEmit.tapAsync('MascotIndexPlugin', (compilation, callback) => {
+      const dataDir = this.dataDir;
+      const outFile = path.join(this.outputDir, 'mascots', 'index.json');
+
+      let files = [];
+      if (fs.existsSync(dataDir)) {
+        files = fs.readdirSync(dataDir).filter(f => /\.(png|jpg|jpeg|gif|webp)$/i.test(f));
+      }
+
+      fs.mkdirSync(path.dirname(outFile), { recursive: true });
+      fs.writeFileSync(outFile, JSON.stringify(files));
+      console.log(`[MascotIndexPlugin] Generated index.json with ${files.length} mascots`);
+      callback();
+    });
+  }
+}
 
 module.exports = env => {
   let platform = env ? (env.platform || 'chrome') : 'chrome';
@@ -28,6 +57,8 @@ module.exports = env => {
         reportFilename: '../bundleAnalyzer/background.html'
       }),
 
+      new MascotIndexPlugin(utils.resolve('data'), utils.resolve(`dist/${platform}`)),
+
       new CopyPlugin({
         patterns: [
           {
@@ -39,6 +70,10 @@ module.exports = env => {
                 '**/remote/**/*'
               ]
             }
+          }, {
+            from: '*.png',
+            to: utils.resolve(`dist/${platform}/mascots/`),
+            context: utils.resolve('data')
           }, {
             from: utils.resolve('node_modules/vue/dist/vue.min.js'),
             to: utils.resolve(`dist/${platform}/lib/vue.min.js`)

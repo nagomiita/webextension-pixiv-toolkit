@@ -4,6 +4,7 @@ import DownloadService from "./DownloadService";
 import HistoryService from "./HistoryService";
 import LogService from "./LogService";
 import SettingService from "./SettingService";
+import ProxyfetchService from "./ProxyfetchService";
 import TabService from "./TabService";
 
 export default {
@@ -12,6 +13,7 @@ export default {
   DownloadService,
   HistoryService,
   LogService,
+  ProxyfetchService,
   SettingService,
   TabService
 };
