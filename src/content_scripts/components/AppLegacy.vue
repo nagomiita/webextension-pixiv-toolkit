@@ -13,8 +13,10 @@
     <template v-if="!isUgoira">
       <ptk-button @click="download"
       >{{ tl('_download') }}{{ generalTaskProgressText }}</ptk-button>
-      <ptk-button v-if="canImportToEagle" @click="importToEagle"
-      >{{ tl('_import_to_eagle') }}</ptk-button>
+      <ptk-button v-if="canImportToEagle" @click="importToEagle({ createWorkFolder: true })"
+      >Eagle ({{ tl('_folder') }})</ptk-button>
+      <ptk-button v-if="canImportToEagle" @click="importToEagle({ createWorkFolder: false })"
+      >Eagle ({{ tl('_single') }})</ptk-button>
     </template>
     <template v-else>
       <ptk-button @click="download({ ugoiraConvertType: 'gif' })"
@@ -177,6 +179,12 @@ export default {
   },
 
   created() {
+    // Register handler via shared module bus for PageSelector communication
+    const pageDownloadBus = require('@/content_scripts/shared/pageDownloadBus').default;
+    pageDownloadBus.handler = (payload) => {
+      this.pageSelectorDownloadHandler(payload);
+    };
+
     /**
      * @type {Adapter}
      */
@@ -398,10 +406,13 @@ export default {
       }
     },
 
-    async importWithEagle({ ugoiraConvertType, selectedIndexes, redownload = false } = {}) {
+    async importWithEagle({ ugoiraConvertType, selectedIndexes, redownload = false, createWorkFolder } = {}) {
       await this.ensureDownloadManagerOpen(async () => {
         const args = this.getDownloadArgs({ ugoiraConvertType, selectedIndexes });
         args.options.redownload = redownload;
+        if (typeof createWorkFolder === 'boolean') {
+          args.options.createWorkFolder = createWorkFolder;
+        }
 
         let response = await browser.runtime.sendMessage({
           action: 'eagle:addImport',
@@ -425,18 +436,20 @@ export default {
       });
     },
 
-    importToEagle({ ugoiraConvertType, selectedIndexes } = {}) {
+    importToEagle({ ugoiraConvertType, selectedIndexes, createWorkFolder } = {}) {
       if (!this.canImportToEagle) {
         alert(this.tl('_eagle_import_not_supported'));
         return;
       }
+
+      this._eagleCreateWorkFolder = createWorkFolder;
 
       if (!this.isUgoira && this.pages && this.pages.length > 1 && !Array.isArray(selectedIndexes)) {
         this.$refs.pageSelector && this.$refs.pageSelector.openSelectionDialog('eagle');
         return;
       }
 
-      this.importWithEagle({ ugoiraConvertType, selectedIndexes });
+      this.importWithEagle({ ugoiraConvertType, selectedIndexes, createWorkFolder });
     },
 
     async download({ ugoiraConvertType, selectedIndexes } = {}) {
@@ -458,8 +471,12 @@ export default {
     },
 
     pageSelectorDownloadHandler({ selectedPageIndexes, mode }) {
-      if (mode === 'eagle') {
-        this.importToEagle({ selectedIndexes: selectedPageIndexes });
+      if (mode === 'eagle-folder') {
+        this.importWithEagle({ selectedIndexes: selectedPageIndexes, createWorkFolder: true });
+      } else if (mode === 'eagle-single') {
+        this.importWithEagle({ selectedIndexes: selectedPageIndexes, createWorkFolder: false });
+      } else if (mode === 'eagle') {
+        this.importWithEagle({ selectedIndexes: selectedPageIndexes, createWorkFolder: this._eagleCreateWorkFolder });
       } else {
         this.download({ selectedIndexes: selectedPageIndexes });
       }

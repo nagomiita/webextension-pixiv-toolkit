@@ -22,10 +22,14 @@ class EagleImportAdapter {
   }
 
   getCommonOptions(resource, context) {
+    const createWorkFolder = typeof this._createWorkFolderOverride === 'boolean'
+      ? this._createWorkFolderOverride
+      : !!this.settings.eagleCreateWorkFolder;
+
     return {
       apiUrl: this.settings.eagleApiUrl,
       eagleBaseFolderId: this.settings.eagleBaseFolderId,
-      eagleCreateWorkFolder: !!this.settings.eagleCreateWorkFolder,
+      eagleCreateWorkFolder: createWorkFolder,
       historyUid: resource.getUid(),
       url: context.targetUrl || resource.getUrl(),
       context,
@@ -169,6 +173,11 @@ class EagleImportAdapter {
   }
 
   async createImportTask(resource, options = {}) {
+    // Per-import createWorkFolder overrides global setting
+    if (typeof options.createWorkFolder === 'boolean') {
+      this._createWorkFolderOverride = options.createWorkFolder;
+    }
+
     const context = resource.getContext();
     context.targetUrl = context.targetUrl || resource.getUrl();
 

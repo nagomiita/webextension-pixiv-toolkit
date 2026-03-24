@@ -989,6 +989,12 @@
     "_not_tested": {
         "message": "Not tested"
     },
+    "_folder": {
+        "message": "Folder"
+    },
+    "_single": {
+        "message": "Single"
+    },
     "_import_to_eagle": {
         "message": "Import to Eagle"
     },

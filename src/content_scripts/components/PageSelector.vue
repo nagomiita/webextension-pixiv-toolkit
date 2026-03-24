@@ -28,15 +28,21 @@
         <ptk-button @click="selectAll">{{ tl('_select_all') }}</ptk-button>
         <ptk-button @click="unselectAll">{{ tl('_unselect_all') }}</ptk-button>
         <ptk-button @click="selectInvert">{{ tl('_select_invert') }}</ptk-button>
-        <ptk-button @click="downloadSelectedPages" :disabled="selectedPageIndexes.length < 1">
-          {{ actionMode === 'eagle' ? tl('_import_to_eagle') : tl('_download') }}
+        <ptk-button v-if="actionMode === 'eagle'" @click="handleEagleFolder" :disabled="selectedPageIndexes.length < 1">
+          Eagle ({{ tl('_folder') }})
+        </ptk-button>
+        <ptk-button v-if="actionMode === 'eagle'" @click="handleEagleSingle" :disabled="selectedPageIndexes.length < 1">
+          Eagle ({{ tl('_single') }})
+        </ptk-button>
+        <ptk-button v-if="actionMode !== 'eagle'" @click="handleDownload" :disabled="selectedPageIndexes.length < 1">
+          {{ tl('_download') }}
         </ptk-button>
         <ptk-button @click="closeSelectionDialog">{{ tl('_close') }}</ptk-button>
       </template>
     </ptk-dialog>
     <ptk-button
       :text="tl('_select_and_dl')"
-      @click="openSelectionDialog()"
+      @click="openForDownload()"
     ></ptk-button>
   </div>
 </template>
@@ -58,7 +64,7 @@ export default {
       required: true,
       type: Array,
       default: [],
-    }
+    },
   },
 
   data() {
@@ -178,11 +184,30 @@ export default {
       this.showSelectionDialog = false;
     },
 
-    downloadSelectedPages() {
-      this.$emit('download', {
-        selectedPageIndexes: this.selectedPageIndexes,
-        mode: this.actionMode
-      });
+    handleEagleFolder() {
+      console.log('[PTK] handleEagleFolder clicked');
+      this.firePageDownload('eagle-folder');
+    },
+
+    handleEagleSingle() {
+      console.log('[PTK] handleEagleSingle clicked');
+      this.firePageDownload('eagle-single');
+    },
+
+    handleDownload() {
+      console.log('[PTK] handleDownload clicked');
+      this.firePageDownload('download');
+    },
+
+    firePageDownload(mode) {
+      const pageDownloadBus = require('@/content_scripts/shared/pageDownloadBus').default;
+      const payload = { selectedPageIndexes: this.selectedPageIndexes, mode };
+      console.log('[PTK] firePageDownload', mode, payload.selectedPageIndexes.length, 'hasHandler:', !!pageDownloadBus.handler);
+      if (typeof pageDownloadBus.handler === 'function') {
+        pageDownloadBus.handler(payload);
+      } else {
+        console.error('[PTK] pageDownloadBus.handler not set!');
+      }
     },
 
     updatePage(index, url) {
